@@ -5,7 +5,7 @@
         <h2>Shipment List</h2>
         <ul>
         {% for item in items %}
-            <li><h4><a href="{% url 'inventories:shipment.detail' item.id %}">{{ item.id }}{{ item.status }}</a></h4></li>
+            <li><h4><a href="{% url 'inventories:shipment.detail' item.id %}">ID # {{ item.id }} - {{ item.status }}</a></h4></li>
             {% endfor %}
         </ul>
     {% else %}
