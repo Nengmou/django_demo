@@ -36,7 +36,14 @@
             <li><a href="{% url 'inventories:vendor.index'%}">Vendors</a></li>
             <li><a href="{% url 'inventories:inventory.index'%}">Inventories</a></li>
             <li><a href="{% url 'inventories:shipment.index'%}">Shipments</a></li>
-            <li><a href="{% url 'inventories:report.index'%}">Shipments</a></li>
+            <li class="dropdown">
+                <a href="/#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reports<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="{% url 'inventories:low.total'%}">Low in Total</a></li>
+                    <li><a href="{% url 'inventories:low.on.floor'%}">Low on Floor</a></li>
+                    <li><a href="{% url 'inventories:low.in.warehouse'%}">Low in Warehouse</a></li>
+                </ul>
+            </li>
             <li><a href="/accounts/logout?next=/">Logout</a></li>
         {% else %}
             <li><a href="/accounts/login">Login</a></li>

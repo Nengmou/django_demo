@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if items %}
+        <h2>{{ title }}</h2>
+        <ul>
+        {% for item in items %}
+            <li>{{ item.item_name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No inventories are available.</p>
+    {% endif %}
+{% endblock %}

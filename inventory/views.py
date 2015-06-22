@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, get_list_or_404, render
 from django.contrib.auth.decorators import login_required
 from inventory.models import *
 
@@ -41,3 +41,21 @@ def shipment_index(request):
 def shipment_detail(request, s_id):
     shipment = get_object_or_404(Shipment, pk=s_id)
     return render(request, 'inventory/shipment_detail.html', {'item': shipment})
+
+
+@login_required
+def report_low_total(request):
+    items = get_list_or_404(Inventory, on_floor_quantity__lte=500)
+    return render(request, 'inventory/report_low_inventory.html', {'items': items, 'title': 'Low Inventory Report'})
+
+
+@login_required
+def report_low_on_floor(request):
+    items = get_list_or_404(Inventory, on_floor_quantity__lte=500)
+    return render(request, 'inventory/report_low_inventory.html', {'items': items, 'title': 'Low on Floor Report'})
+
+
+@login_required
+def report_low_in_warehouse(request):
+    items = get_list_or_404(Inventory, in_warehouse_quantity__lte=500)
+    return render(request, 'inventory/report_low_inventory.html', {'items': items, 'title': 'Low in Warehouse Report'})

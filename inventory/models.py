@@ -37,3 +37,6 @@ class Shipment(models.Model):
     status = models.ForeignKey(ShipmentStatus)
     vendor = models.ForeignKey(Vendor)
     items = models.ManyToManyField(Inventory)
+
+    def __str__(self):
+        return 'Shipment # ' + str(self.id)
