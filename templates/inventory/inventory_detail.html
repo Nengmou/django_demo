@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Inventory Detail # {{ item.id }}</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div>Name: </div>
+            <div>Part Number: </div>
+            <div>Vendor: </div>
+            <div>Warning Threshold: </div>
+            <div>On Floor Quantity: </div>
+           <div>In Warehouse Quantity: </div>
+           <div>Total Quantity: </div>
+        </div>
+        <div class="col-md-3">
+            <div>{{ item.item_name }} </div>
+            <div>{{ item.part_number }} </div>
+            <div>{{ item.vendor }} </div>
+            <div>{{ item.warning_threshold }} </div>
+            <div>{{ item.on_floor_quantity }} </div>
+            <div>{{ item.in_warehouse_quantity }} </div>
+            <div>{{ item.total_quantity }} </div>
+        </div>
+    </div>
+{% endblock %}

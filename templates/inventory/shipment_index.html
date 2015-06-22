@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if items %}
+        <h2>Shipment List</h2>
+        <ul>
+        {% for item in items %}
+            <li><h4><a href="{% url 'inventories:shipment.detail' item.id %}">{{ item.id }}{{ item.status }}</a></h4></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No shipments are available.</p>
+    {% endif %}
+{% endblock %}

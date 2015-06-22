@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Shipment Detail # {{ item.id }}</h2>
+    <div class="row">
+        <div class="col-md-12">
+            Status: {{ item.status }}
+        </div>
+        <div class="col-md-12">
+            Vendor: {{ item.vendor }}
+        </div>
+      </div>
+{% endblock %}
